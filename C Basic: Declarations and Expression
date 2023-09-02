@@ -1,0 +1,7 @@
+1. Write a C program to print your name, date of birth, and mobile number.
+#include<stdio.h>
+int main()
+{
+    printf("Name\t:Ameer Salam\nDOB\t\t:May 3, 2023\nMobile\t:8867170182\n");
+    return 0;
+}
