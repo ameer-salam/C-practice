@@ -5,3 +5,330 @@ int main()
     printf("Name\t:Ameer Salam\nDOB\t\t:May 3, 2023\nMobile\t:8867170182\n");
     return 0;
 }
+
+2.Write a C program to get the C version you are using.
+#include<stdio.h>
+int main(int argc, char** argv)
+{
+	#if __STDC_VERSION__ >= 201710L
+		printf("C18");
+	#elif __STDC_VERSION__ >= 201112L
+		printf("C11");
+	#elif __STDC_VERSION__ >= 199901L
+		printf("C99");
+	#else
+		printf("C89/ C90");
+	#endif
+	return 0;
+}
+
+3. Write a C program to print a block F using the hash (#), where the F has a height of six characters and width of five and four characters. And also print a very large 'C'.
+#include<stdio.h>
+
+int main()
+{
+//to print F of height 7 # and 5 and 4 #include 
+	int i=1, j=0, c=1;
+	printf("Priting F\n");
+	for(i=1; i<8; i++)
+	{
+		printf("#");
+		if(i==3 || i==1)
+		    for(j=c; j<=6;j++)
+			    printf("#");
+		printf("\n");
+		c++;
+	}
+	printf("Printing C\n");
+	i=0;
+	while(i<10)
+	{
+	        if(i==0)
+	        printf("\t\t###\n");
+            else if(i==1)
+	        printf("\t####\n");
+	        else if(i==8)
+	        printf("\t####\n");
+	        else if(i==9)
+	        printf("\t\t###\n");
+            else
+	            printf("####\n");
+	       i++;
+    }
+	return 0;
+}
+
+4. Write a C program to print the following characters in reverse.
+Test Characters: 'X', 'M', 'L'
+#include<stdio.h>
+int main()
+{
+	int i;
+	char str[6]="XML";
+	for(i=2; i>=0; i--)
+		printf("%c", str[i]);
+}
+
+5. Write a C program to compute the perimeter and area of a rectangle with a height of 7 inches and width of 5 inches.
+Perimeter of a circle formula- 2piR (pi=3.142 and R is the Radius)
+#include<stdio.h>
+#define PI 3.14159265359
+float peri(float radius)
+{
+	return (2*PI*radius);	
+}
+int main()
+{
+	int r;
+	printf("Enter the Radius of the circle: ");
+	scanf("%d", &r);
+	printf("The perimeter of the circle is : %.10f", peri(r));
+	return 0;
+}
+
+6. Write a C program to compute the perimeter and area of a circle with a given radius.
+#include<stdio.h>
+#include<math.h>
+#define PI 3.14159265359
+float peri(float radius)
+{
+    return (2*PI*radius);
+}
+float area(float radius)
+{
+    return (PI*pow(radius, 2));
+}
+int main()
+{
+    float r;
+    printf("To find the Area and the Perimeter of the Circle:\n");
+    printf("Enter the Radius of the circle: ");
+    scanf("%f", &r);
+    printf("The Perimeter of the Circle is= %f\nThe Area of the Circle is=%f\n", peri(r), area(r));
+    return 0;
+}
+
+8. Write a C program to convert specified days into years, weeks and days.
+#include<stdio.h>
+int main()
+{
+	int days, year, week, day;
+	printf("Enter the number of Days : ");
+	scanf("%d", &days);
+	year=days/365;
+	printf("Year : %d\n", year);
+	week=(days%365)/7;
+	printf("Weeks : %d\n", week);
+	day=days-((year*365)+(week*7));
+	printf("Days : %d\n", day);
+	printf("End\n");
+	return 0;
+}
+
+9. Write a C program that accepts two integers from the user and calculates the sum of the two integers.
+#include<stdio.h>
+int main()
+{
+	int a,b;
+	scanf("%d%d", &a, &b);
+	printf("%d", a+b);
+	return 0;
+}
+
+10. Write a C program that accepts two integers from the user and calculates the product of the two integers
+#include<stdio.h>
+int main()
+{
+	int a, b;
+	scanf("%d%d", &a, &b);
+	printf("%d", a*b);
+	return 0;
+}
+
+11. Write a C program that accepts two item's weight and number of purchases (floating point values) and calculates their average value.
+#include<stdio.h>
+int main()
+{
+	float a, b;
+	scanf("%f%f", &a, &b);
+	printf("%f", (a+b)/2);
+	return 0;
+}
+
+12. Write a C program that accepts an employee's ID, total worked hours in a month and the amount he received per hour. Print the ID and salary (with two decimal places) of the employee for a particular month.
+#include<stdio.h>
+struct employee
+{
+	int id;
+	char name[20];
+	int h;
+};
+int main()
+{
+	int n, i;
+	float sal;
+	struct employee emp[10];
+	printf("Enter the total number of employees : ");
+	scanf("%d", &n);
+	printf("Enter the salary per hour: ");
+	scanf("%f", &sal);
+	for(i=0; i<n; i++)
+	{
+		printf("Enter the %d employee details :\n", i+1);
+		printf("Enter the ID numebr :");
+		scanf("%d", &emp[i].id);
+		printf("Enter the name: ");
+		scanf("%s", emp[i].name);
+		printf("Enter the time a person has worked: ");
+		scanf("%i", &emp[i].h);
+		printf("\n\n");
+	}
+	for(i=0;i<n;i++)
+	{
+		printf("The employee %d", i+1);
+		printf("Name : %s\nID: %d\nSalary: %f\n", emp[i].name, emp[i].id, emp[i].h*sal);
+	}
+	return 0;
+}
+
+13. Write a C program that accepts three integers and finds the maximum of three.
+#include <stdio.h>
+int main()
+{
+	int a, b, c, l;
+	scanf("%i%i%i", &a, &b, &c);
+	l=a;
+    if(b>l)
+    {
+        if(b>c)
+            l=b;
+        else
+            l=c;
+    }
+    if(c>l)
+    {
+        if(c>b)
+            l=c;
+        else
+            l=b;
+    }
+    printf("%d", l);
+}
+
+14. Write a C program to calculate a bike’s average consumption from the given total distance (integer value) travelled (in km) and spent fuel (in litters, float number – 2 decimal points).
+#include<stdio.h>
+int main()
+{
+	int dist;
+	float fuel;
+	float avg;
+	printf("Enter the distance: ");
+	scanf("%d", &dist);
+	printf("Enter the fuel consumed: ");
+	scanf("%f", &fuel);
+	avg=dist/fuel;
+	printf("The avrage fuel consumption of the vehicle is: %.2f", avg);
+	return 0;
+}
+
+15. Write a C program to calculate the distance between two points.
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+	int x1, x2, y1, y2;
+	float dist;
+	printf("enter in the format x1, y1, x2, y2\n");
+	scanf("%d%d%d%d", &x1, &y1, &x2, &y2);
+	dist=sqrt((pow(x2-x1, 2))+(pow(y2-y1, 2)));
+	printf("The Distance between the sad points is %f\n", dist);
+}
+
+16. Write a C program to read an amount (integer value) and break the amount into the smallest possible number of bank notes.
+#include<stdio.h>
+int main()
+{
+	int amt,hun,fif,twe,ten,fiv,two,one;
+	printf("Enter the amount : ");
+	scanf("%d", &amt);
+	hun=amt/100;
+	printf("%d note of 100\n", hun);
+	fif=(amt%100)/50;
+	printf("%d not of 50\n", fif);
+	twe=((amt%100)%50)/20;
+	printf("%d not of 20\n", twe);
+	ten=((((amt%100)%50)%20)/10);
+	printf("%d not of 10\n", ten);
+	fiv=(((((amt%100)%50)%20)%10)/5);
+	printf("%d not of 5\n", fiv);
+	two=((((((amt%100)%50)%20)%10)%5)/2);
+	printf("%d not of 2\n", two);
+	one=(((((((amt%100)%50)%20)%10)%5)%2)/1);
+	printf("%d not of 1\n", one);
+	return 0;
+}
+
+17. Write a C program to convert a given integer (in seconds) to hours, minutes and seconds.
+#include<stdio.h>
+int main()
+{
+	int min, hour, sec;
+	scanf("%d", &sec);
+	min=sec%60;
+	hour=60/min;
+	printf("Hour = %d\n", hour);
+	printf("Min = %d\n", min);
+	return 0;
+}
+
+18. Write a C program to convert a given integer (in days) to years, months and days, assuming that all months have 30 days and all years have 365 days.
+#include<stdio.h>
+int main()
+{
+    int days, months, year;
+    scanf("%d", &days);
+    year=days/365;
+    months=(days/30)-12*(days/365);
+    printf("Year = %d\n", year);
+    printf("Months = %d\n", months);
+    return 0;
+}
+
+19. Write a C program that accepts 4 integers p, q, r, s from the user where q, r and s are positive and p is even. If q is greater than r and s is greater than p and if the sum of r and s is greater than the sum of p and q print "Correct values", otherwise print "Wrong values".
+#include<stdio.h>
+int main()
+{
+    signed int p, q, r, s;
+    scanf("%d%d%d%d", &p, &q, &r, &s);
+    if((((q>0 && r>0 && s>0) && p%2==0) && (r<q && s>p)) && ((r+s)>(p+q)))
+        printf("Correct values\n");
+    else
+        printf("Wrong values\n");
+    return 0;
+}
+
+20. Write a C program to print the roots of Bhaskara’s formula from the given three floating numbers. Display a message if it is not possible to find the roots.
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+	int a, b, c, i=0;
+	float x;
+	scanf("%d%d%d", &a, &b, &c);
+	while(i<=1)
+	{
+		if(i==0)
+		{
+			x=(-b+(sqrt(pow(b, 2)-(4*(a*c)))))/(2*a);
+			printf("root x%d = %f\n", i+1, x);
+		}
+		else
+		{
+		    x=(b+(sqrt(pow(b, 2)-(4*(a*c)))))/(2*a);
+		    printf("root x%d = %f\n", i+1, x);
+		}
+		i++;
+	}
+	
+}
+
